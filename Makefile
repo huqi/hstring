@@ -1,4 +1,4 @@
-test: KM_String.cc test.cc
+test: hstring.cc test.cc
 	g++ -o $@ -g $^
 
 .PHONY : clean

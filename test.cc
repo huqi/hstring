@@ -1,38 +1,38 @@
-#include "KM_String.h"
+#include "hstring.h"
 #include <vector>
 
 
-void foo(KM_String x)
+void foo(hstring x)
 {
 
 }
 
-void bar(const KM_String &x)
+void bar(const hstring &x)
 {
 
 }
 
-KM_String baz(void)
+hstring baz(void)
 {
-    KM_String ret("world");
+    hstring ret("world");
     return ret;
 }
 
 int main(int argc, char **argv)
 {
-    KM_String s0;
-    KM_String s1("hello");
-    KM_String s2(s0);
-    KM_String s3 = s1;
+    hstring s0;
+    hstring s1("hello");
+    hstring s2(s0);
+    hstring s3 = s1;
     s2 = s1;
 
     foo(s1);
     bar(s1);
     foo("temporary");
     bar("temporary");
-    KM_String s4 = baz();
+    hstring s4 = baz();
 
-    vector<KM_String> svec;
+    vector<hstring> svec;
     svec.push_back(s0);
     svec.push_back(s1);
     svec.push_back(baz());

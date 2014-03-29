@@ -1,40 +1,40 @@
 #include <string.h>
-#include "KM_String.h"
+#include "hstring.h"
 
-KM_String::KM_String(void)
+hstring::hstring(void)
             : data (new char [1])
 {
     *data = '\0';
     len = 0;
 }
 
-KM_String::KM_String(const KM_String &str)
+hstring::hstring(const hstring &str)
     : data (new char [1]), len(0)
 {
     assign(str.c_str());
 }
 
-KM_String::KM_String(const char *str)
+hstring::hstring(const char *str)
     : data (new char [strlen(str) + 1]), len(0)
 {
     strcpy(data, str);
     len = strlen(data);
 }
 
-KM_String::~KM_String(void)
+hstring::~hstring(void)
 {
     delete [] data;
     len = 0;
 }
 
-void KM_String::clear(void)
+void hstring::clear(void)
 {
     delete [] data;
     data = new char[1];
     len = 0;
 }
 
-void KM_String::assign(const char *str)
+void hstring::assign(const char *str)
 {
     if (str == NULL)
     {
@@ -49,7 +49,7 @@ void KM_String::assign(const char *str)
     }
 }
 
-void KM_String::append(const char *str)
+void hstring::append(const char *str)
 {
     if (str == NULL)
         return ;
@@ -62,7 +62,7 @@ void KM_String::append(const char *str)
     delete [] temp;
 }
 
-bool KM_String::compare(const char *str)
+bool hstring::compare(const char *str)
 {
     if (strcmp(data, str) == 0)
         return true;
@@ -70,39 +70,39 @@ bool KM_String::compare(const char *str)
     return false;
 }
 
-char *KM_String::c_str(void) const
+char *hstring::c_str(void) const
 {
     return data;
 }
 
-unsigned int KM_String::length(void)
+unsigned int hstring::length(void)
 {
     return len;
 }
 
-KM_String &KM_String::operator+(KM_String &str)
+hstring &hstring::operator+(hstring &str)
 {
     append(str.c_str());
     return *this;
 }
 
-KM_String &KM_String::operator=(KM_String &str)
+hstring &hstring::operator=(hstring &str)
 {
     assign(str.c_str());
     return *this;
 }
 
-bool KM_String::operator==(KM_String &str)
+bool hstring::operator==(hstring &str)
 {
     return compare(str.c_str());
 }
 
-ostream &operator<<(ostream &os, KM_String &str)
+ostream &operator<<(ostream &os, hstring &str)
 {
     os << str.data;
 }
 
-istream &operator>>(istream &is, KM_String &str)
+istream &operator>>(istream &is, hstring &str)
 {
     char temp[2048] = {0};
 
