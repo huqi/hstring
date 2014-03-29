@@ -99,7 +99,7 @@ bool hstring::operator==(hstring &str)
 
 ostream &operator<<(ostream &os, hstring &str)
 {
-    os << str.data;
+    return os << str.data;
 }
 
 istream &operator>>(istream &is, hstring &str)
