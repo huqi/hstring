@@ -20,6 +20,8 @@ class hstring
         bool empty(void);
         int compare(const char *str);
         int compare(const hstring &str);
+        unsigned int find(char *str);
+        unsigned int fine(char c);
         char *c_str(void) const;
         void clear(void);
         unsigned int length(void);

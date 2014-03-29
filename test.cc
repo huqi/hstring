@@ -33,6 +33,8 @@ int main(int argc, char **argv)
     hstring s4 = baz();
 
     cout << s4[3] << endl;
+    cout << s4.length() << endl;
+    cout << s4.empty() << endl;
 
     vector<hstring> svec;
     svec.push_back(s0);

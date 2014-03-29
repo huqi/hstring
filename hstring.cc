@@ -82,6 +82,24 @@ unsigned int hstring::length(void)
     return len;
 }
 
+unsigned int hstring::find(char *str)
+{
+    char *temp = strstr(data, str);
+
+    if (temp == NULL)
+        return -1;
+
+    return temp - data;
+}
+
+unsigned int hstring::fine(char c)
+{
+    char temp[2] = {0};
+    *temp = c;
+
+    return find(temp);
+}
+
 hstring &hstring::operator+(hstring &str)
 {
     append(str.c_str());
@@ -123,4 +141,3 @@ istream &operator>>(istream &is, hstring &str)
 
     return is;
 }
-
