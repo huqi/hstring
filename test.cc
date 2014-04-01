@@ -32,6 +32,8 @@ int main(int argc, char **argv)
     bar("temporary");
     hstring s4 = baz();
 
+    cout << s4[3] << endl;
+
     vector<hstring> svec;
     svec.push_back(s0);
     svec.push_back(s1);

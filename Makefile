@@ -3,4 +3,4 @@ test: hstring.cc test.cc
 
 .PHONY : clean
 clean:
-	rm --force *.o test
+	rm -f *.o test

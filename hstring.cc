@@ -2,7 +2,7 @@
 #include "hstring.h"
 
 hstring::hstring(void)
-            : data (new char [1])
+    : data (new char [1])
 {
     *data = '\0';
     len = 0;
@@ -62,12 +62,14 @@ void hstring::append(const char *str)
     delete [] temp;
 }
 
-bool hstring::compare(const char *str)
+int hstring::compare(const char *str)
 {
-    if (strcmp(data, str) == 0)
-        return true;
+    return strcmp(data, str);
+}
 
-    return false;
+int hstring::compare(const hstring &str)
+{
+    return compare(str.c_str());
 }
 
 char *hstring::c_str(void) const
@@ -92,9 +94,19 @@ hstring &hstring::operator=(hstring &str)
     return *this;
 }
 
+bool hstring::empty(void)
+{
+    return !len;
+}
+
 bool hstring::operator==(hstring &str)
 {
-    return compare(str.c_str());
+    return !compare(str.c_str());
+}
+
+char hstring::operator[](int index)
+{
+    return data[index];
 }
 
 ostream &operator<<(ostream &os, hstring &str)
@@ -111,3 +123,4 @@ istream &operator>>(istream &is, hstring &str)
 
     return is;
 }
+

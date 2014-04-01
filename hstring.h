@@ -17,11 +17,14 @@ class hstring
 
         void assign(const char *str);
         void append(const char *str);
-        bool compare(const char *str);
+        bool empty(void);
+        int compare(const char *str);
+        int compare(const hstring &str);
         char *c_str(void) const;
         void clear(void);
         unsigned int length(void);
 
+        char operator[](int index);
         hstring &operator+(hstring &str);
         hstring &operator=(hstring &str);
         bool operator==(hstring &str);
